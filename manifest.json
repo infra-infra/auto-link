@@ -1,0 +1,32 @@
+{
+  "name": "auto-link",
+  "description": "自动外链跳转谷歌插件",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "icon_16.png",
+    "48": "icon_128.png",
+    "128": "icon_128.png"
+  },
+  "action": {
+    "default_title": "小夕图片提取插件",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://link.juejin.cn/?target=*",
+        "*://link.zhihu.com/?target=*",
+        "*://link.csdn.net/?target=*",
+        "*://www.jianshu.com/go-wild?ac=2&url=*",
+        "*://game.bilibili.com/linkfilter/?url=*"
+      ],
+      "js": ["content_scripts.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
